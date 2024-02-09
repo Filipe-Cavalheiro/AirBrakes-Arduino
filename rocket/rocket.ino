@@ -3,6 +3,12 @@
 
 #define APOGEE 3000
 #define MAX_AREA 0.004484
+#define KP 8
+#define KI 1
+#define KD 1
+#define ROCKET_CD 0.5
+#define AB_CD 1.17
+#define MASS 23088.0
 #define ENDCHAR "#"
 
 Servo myservo;
@@ -18,8 +24,8 @@ void setup() {
 }
 
 void loop() {
-  Parameters param(APOGEE, 8, 1, 1, 0.01767, MAX_AREA, 0.5, 1.17);
-  Rocket rocket(0, 0, 0, 23088.0);
+  Parameters param(APOGEE, KP, KI, KD, 0.01767, MAX_AREA, ROCKET_CD, AB_CD);
+  Rocket rocket(0, 0, 0, MASS);
   Miscellaneous misc(0, 0, 0, 0, 0, 1.0);
   AirBrakes ab;
 
